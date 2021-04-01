@@ -5019,10 +5019,10 @@ minizlib@^2.1.1:
     minipass "^3.0.0"
     yallist "^4.0.0"
 
-mirador@^3.0.0-rc.7:
-  version "3.0.0-rc.7"
-  resolved "https://registry.yarnpkg.com/mirador/-/mirador-3.0.0-rc.7.tgz#f7f4d0456f6bfb137788193d316850e5359a57e7"
-  integrity sha512-xn/O6/aeXWuwAj/JaCzjmQSEt2PD8kGCBj7lxOzcuEWfjd75aQVF4uFfvUq9xw8+T8eTLFj1tfGDplHk6PHB/g==
+mirador@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/mirador/-/mirador-3.0.0.tgz#27f6f24f0438b99499ff59484848678f30c5bb69"
+  integrity sha512-RSXaJ5tSkpaTB7Gej58O5CRwyCss+Ha1hpKYErLexHcR3uro6jDev7NuUQhAWU2IvLOsebmUeg+2gDH+FgVxOg==
   dependencies:
     "@material-ui/core" "^4.11.0"
     "@material-ui/icons" "^4.9.1"
@@ -8509,9 +8509,9 @@ xtend@^4.0.0, xtend@~4.0.1:
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
-  integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.1.tgz#8db2b83c31c5d75099bb890b23f3094891e247d4"
+  integrity sha512-wNcy4NvjMYL8gogWWYAO7ZFWFfHcbdbE57tZO8e4cbpj8tfUcwrwqSl3ad8HxpYWCdXcJUCeKKZS62Av1affwQ==
 
 yallist@^2.1.2:
   version "2.1.2"
