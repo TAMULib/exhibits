@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1', '>= 6.1.7.6'
@@ -25,6 +25,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'execjs', '~> 2.8', '>= 2.8.1'
+gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.13.0'
+gem 'sprockets', '~> 4.2'
+gem 'concurrent-ruby', '~> 1.2', '>= 1.2.2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -41,7 +46,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 4.0', '>= 4.0.3'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
@@ -49,14 +54,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
 
-gem 'pg'
+gem 'pg', '1.3.0.rc2'
 
 gem 'devise_ldap_authenticatable'
 
 gem 'tinymce-rails'
 
 gem 'blacklight', ' ~> 7.0'
-gem 'blacklight-spotlight', github: 'projectblacklight/spotlight'
+gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
