@@ -74,7 +74,8 @@ gem 'tinymce-rails'
 
 gem 'blacklight', ' ~> 7.0'
 
-gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
+# gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
+gem 'blacklight-spotlight', '~> 3.2'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
@@ -107,4 +108,5 @@ gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dab
 
 gem 'riiif', '~> 2.4'
 gem 'spotlight-resources-iiif', '~> 0.1.1'
+gem 'minitest', '~> 5.20'
 
