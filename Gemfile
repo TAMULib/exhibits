@@ -66,7 +66,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
 
-gem 'pg', '~> 1.5', '>= 1.5.4'
+# gem 'pg', '~> 1.5', '>= 1.5.4'
 
 gem 'devise_ldap_authenticatable'
 
