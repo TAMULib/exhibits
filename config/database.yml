@@ -28,8 +28,8 @@ test:
   # <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
+production: &default
+  # <<: *default
   adapter:  <%= ENV['DATABASE_ADAPTER'] || "postgresql" %>
   encoding: <%= ENV['DATABASE_ENCODING'] || "unicode" %>
   database: <%= ENV['DATABASE_NAME'] || "spotlight" %>
