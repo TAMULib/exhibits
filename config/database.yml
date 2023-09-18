@@ -34,4 +34,4 @@ test:
 production:
   <<: *default
   database: <%= ENV['DATABASE_NAME'] || "spotlight" %>
-  
+  host: db
