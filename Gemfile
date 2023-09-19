@@ -67,6 +67,7 @@ end
 gem 'tzinfo-data'
 
 gem 'pg', '~> 1.5', '>= 1.5.4'
+gem 'pg_party', '~> 1.6'
 
 gem 'devise_ldap_authenticatable'
 
