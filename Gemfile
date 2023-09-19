@@ -4,8 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-# gem 'rails', '~> 6.1', '>= 6.1.7.6'
-gem 'rails', '~> 7.0'
+gem 'rails', '~> 6.1', '>= 6.1.7.6'
   
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
@@ -112,4 +111,4 @@ gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dab
 gem 'riiif', '~> 2.4'
 gem 'spotlight-resources-iiif', '~> 0.1.1'
 gem 'minitest', '~> 5.20'
-
+gem 'sir_trevor_rails', '~> 0.6.1'
