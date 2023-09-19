@@ -4,7 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1', '>= 6.1.7.6'
+# gem 'rails', '~> 6.1', '>= 6.1.7.6'
+gem 'rails', '~> 7.0'
   
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
@@ -95,7 +96,8 @@ gem 'devise-guests', '~> 0.6'
 
 gem 'coffee-rails', '~> 4.2'
 
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 4.2'
+gem 'terser', '~> 1.1', '>= 1.1.18'
 
 gem 'friendly_id'
 
