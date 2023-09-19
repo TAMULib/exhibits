@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'stir_trevor_rails'
+require 'sir_trevor_rails'
 
 Rails.application.config.after_initialize do
   # Required for 0.6 and up:
