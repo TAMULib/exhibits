@@ -8,11 +8,12 @@ default: &default
   adapter:  <%= ENV['DATABASE_ADAPTER'] || "postgresql" %>
   encoding: <%= ENV['DATABASE_ENCODING'] || "unicode" %>
   # database: <%= ENV['DATABASE_NAME'] || "spotlight" %>
-  pool:     <%= ENV['DATABASE_POOL'] || 5 %>
+  # pool:     <%= ENV['DATABASE_POOL'] || 5 %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV['DATABASE_USERNAME'] || "spotlight" %>
   password: <%= ENV['DATABASE_PASSWORD'] || "spotlight" %>
   # host:     <%= ENV['DATABASE_HOST'] || "localhost" %>
-  host:     <%= ENV['DATABASE_HOST'] || "db" %>
+  host:     db
   port:     <%= ENV['DATABASE_PORT'] || 5432 %>
   ssl:      <%= ENV['DATABASE_SSL'] || "disable" %>
 #   adapter: sqlite3
@@ -35,5 +36,6 @@ test:
 production:
   <<: *default
   database: <%= ENV['DATABASE_NAME'] || "spotlight" %>
-  host: <%= ENV['DATABASE_HOST'] || "localhost" %>
-  port: <%= ENV['DATABASE_PORT'] || 5432 %>
+  username: <%= ENV['DATABASE_USERNAME'] || "spotlight" %>
+  password: <%= ENV['DATABASE_PASSWORD'] || "spotlight" %>
+  
