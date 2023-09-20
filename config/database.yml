@@ -12,7 +12,7 @@ default: &default
   username: <%= ENV['DATABASE_USERNAME'] || "spotlight" %>
   password: <%= ENV['DATABASE_PASSWORD'] || "spotlight" %>
   # host:     <%= ENV['DATABASE_HOST'] || "localhost" %>
-  host:     <%= ENV['DATABASE_HOST'] || "localhost" %>
+  host:     <%= ENV['DATABASE_HOST'] || "db" %>
   port:     <%= ENV['DATABASE_PORT'] || 5432 %>
   ssl:      <%= ENV['DATABASE_SSL'] || "disable" %>
 #   adapter: sqlite3
@@ -35,4 +35,4 @@ test:
 production:
   <<: *default
   database: <%= ENV['DATABASE_NAME'] || "spotlight" %>
-  host: db
+  host: <%= ENV['DATABASE_HOST'] || "db" %>
