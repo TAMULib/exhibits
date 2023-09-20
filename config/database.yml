@@ -21,13 +21,13 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter:  <%= ENV['DATABASE_ADAPTER'] || "postgresql" %>
+  adapter: <%= ENV['DATABASE_ADAPTER'] || "postgresql" %>
   encoding: <%= ENV['DATABASE_ENCODING'] || "unicode" %>
   database: <%= ENV['DATABASE_NAME'] || "spotlight" %>
-  pool:     <%= ENV['DATABASE_POOL'] || 5 %>
+  pool: <%= ENV['DATABASE_POOL'] || 5 %>
   username: <%= ENV['DATABASE_USERNAME'] || "spotlight" %>
   password: <%= ENV['DATABASE_PASSWORD'] || "spotlight" %>
-  # host:     <%= ENV['DATABASE_HOST'] || "localhost" %>
-  host:     <%= ENV['DATABASE_HOST'] || "db" %>
-  port:     <%= ENV['DATABASE_PORT'] || 5432 %>
-  ssl:      <%= ENV['DATABASE_SSL'] || "disable" %>
+  # host: <%= ENV['DATABASE_HOST'] || "localhost" %>
+  host: <%= ENV['DATABASE_HOST'] || "db" %>
+  port: <%= ENV['DATABASE_PORT'] || 5432 %>
+  ssl: <%= ENV['DATABASE_SSL'] || "disable" %>
