@@ -523,7 +523,7 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.6)
   devise_invitable
-  devise_ldap_authenticatable
+  devise_ldap_authenticatable (~> 0.8.7)
   execjs (~> 2.8, >= 2.8.1)
   friendly_id
   jbuilder (~> 2.7)

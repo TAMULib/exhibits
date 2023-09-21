@@ -69,7 +69,7 @@ gem 'tzinfo-data'
 gem 'pg', '~> 1.5', '>= 1.5.4'
 gem 'pg_party', '~> 1.6'
 
-gem 'devise_ldap_authenticatable'
+gem 'devise_ldap_authenticatable', '~> 0.8.7'
 
 gem 'tinymce-rails'
 
