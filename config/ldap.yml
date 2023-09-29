@@ -3,7 +3,7 @@ default: &default
   port: <%= ENV['LDAP_PORT'] || 636 %>
   attribute: <%= ENV['LDAP_ATTRIBUTE'] || "mail" %>
   base: <%= ENV['LDAP_BASE'] || "OU=UserAccounts,DC=library,DC=tamu,DC=edu" %>
-  admin_user: <%= ENV['LDAP_ADMIN_USER'] || "CN=LIBRARY\libraryweb,OU=ServiceAccounts,DC=library,DC=tamu,DC=edu" %>
+  admin_user: <%= ENV['LDAP_ADMIN_USER'] || "CN=libraryweb,OU=ServiceAccounts,DC=library,DC=tamu,DC=edu" %>
   admin_password: <%= ENV['LDAP_ADMIN_PASSWORD'] || "xyzzy" %>
   ssl: <%= ENV['LDAP_SSL'] || true %>
 

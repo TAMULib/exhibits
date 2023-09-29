@@ -35,10 +35,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'execjs', '~> 2.8', '>= 2.8.1'
-gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.13.0'
-gem 'sprockets', '~> 4.2'
-gem 'concurrent-ruby', '~> 1.2', '>= 1.2.2'
+# gem 'execjs', '~> 2.8', '>= 2.8.1'
+# gem 'autoprefixer-rails', '~> 10.4', '>= 10.4.13.0'
+# gem 'sprockets', '~> 4.2'
+# gem 'concurrent-ruby', '~> 1.2', '>= 1.2.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -73,6 +73,7 @@ gem 'pg', '~> 1.5', '>= 1.5.4'
 gem 'pg_party', '~> 1.6'
 
 gem 'devise_ldap_authenticatable', '~> 0.8.7'
+gem 'net-ldap', '~> 0.18.0'
 
 gem 'tinymce-rails'
 

@@ -28,6 +28,5 @@ production:
   username: <%= ENV['DATABASE_USERNAME'] || "spotlight" %>
   password: <%= ENV['DATABASE_PASSWORD'] || "spotlight" %>
   host: <%= ENV['DATABASE_HOST'] || "localhost" %>
-  # host: <%= ENV['DATABASE_HOST'] || "db" %>
   port: <%= ENV['DATABASE_PORT'] || 5432 %>
   ssl: <%= ENV['DATABASE_SSL'] || "disable" %>
