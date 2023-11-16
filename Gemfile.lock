@@ -292,7 +292,7 @@ GEM
     msgpack (1.7.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
-    net-imap (0.3.7)
+    net-imap (0.4.5)
       date
       net-protocol
     net-ldap (0.18.0)
@@ -302,7 +302,7 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.5.9)
+    nio4r (2.6.0)
     nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -524,7 +524,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 2.7.4p191
 
 BUNDLED WITH
    2.1.4
