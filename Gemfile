@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1', '>= 6.1.7.6'
+gem 'rails', '~> 6.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -55,7 +55,7 @@ gem 'devise_ldap_authenticatable'
 
 gem 'tinymce-rails'
 
-gem 'blacklight', ' ~> 7.0'
+gem 'blacklight', '~> 7.35'
 gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
@@ -71,7 +71,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'friendly_id'
 gem 'sitemap_generator'
-gem 'blacklight-gallery', '~> 3.0'
-gem 'blacklight-oembed', '~> 1.0'
+gem 'blacklight-gallery', '~> 3.5'
+gem 'blacklight-oembed', '~> 1.1', '>= 1.1.1'
 gem 'devise_invitable'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
