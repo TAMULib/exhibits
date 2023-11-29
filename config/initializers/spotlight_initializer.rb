@@ -72,11 +72,11 @@
 # ==> Sir Trevor Widget Configuration
 # These are set by default by Spotlight's configuration,
 # but you can customize them here, or in the SirTrevorRails::Block#custom_block_types method
-# Spotlight::Engine.config.sir_trevor_widgets = %w(
-#   Heading Wysiwyg Text List Quote Iframe Video Oembed Rule UploadedItems Browse
-#   FeaturedPages SolrDocuments SolrDocumentsCarousel SolrDocumentsEmbed
-#   SolrDocumentsFeatures SolrDocumentsGrid SearchResults
-# )
+Spotlight::Engine.config.sir_trevor_widgets = %w(
+  Heading Wysiwyg Text List Quote Iframe Video Oembed Rule UploadedItems Browse
+  FeaturedPages SolrDocuments SolrDocumentsCarousel SolrDocumentsEmbed
+  SolrDocumentsFeatures SolrDocumentsGrid SearchResults
+)
 #
 # Page configurations made available to widgets
 # Spotlight::Engine.config.page_configurations = {
