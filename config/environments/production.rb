@@ -24,7 +24,7 @@ Rails.application.configure do
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
-  config.assets.css_compressor = nil
+
   # config.assets.js_compressor = Uglifier.new(harmony: true)
   config.assets.js_compressor = :terser
 
