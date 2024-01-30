@@ -57,7 +57,7 @@ gem 'tinymce-rails'
 
 gem 'blacklight', '~> 7.35'
 # gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
-gem 'blacklight-spotlight', '~> 3.5', '>= 3.5.0.2'
+gem 'blacklight-spotlight', '~> 3.3', '>= 3.3.0'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
