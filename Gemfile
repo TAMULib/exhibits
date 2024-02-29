@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.0'
+ruby '3.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1', '>= 6.1.7.6'
-# Ruby on Rails legacy application update generates Gem Psych Alias error Psych::BadAlias.Keep gem version less than 4. Psych 4 and up will casue the app to break.
-gem 'psych', '< 4'
+gem 'rails', '~> 6.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -14,7 +12,7 @@ gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -43,7 +41,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver', '~> 4.0', '>= 4.0.3'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
@@ -51,17 +49,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
 
-gem 'pg', '~> 1.5', '>= 1.5.4'
-gem 'pg_party', '~> 1.6'
+gem 'pg'
 
-gem 'devise_ldap_authenticatable', '~> 0.8.7'
-gem 'net-ldap', '~> 0.18.0'
+gem 'devise_ldap_authenticatable'
 
 gem 'tinymce-rails'
 
-gem 'blacklight', '~> 8.0', '>= 8.0.1'
-gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
-
+gem 'blacklight', '~> 7.35'
+# gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
+gem 'blacklight-spotlight', '~> 3.3', '>= 3.3.0'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
@@ -73,11 +69,13 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'coffee-rails', '~> 4.2'
-gem 'uglifier', '~> 4.2'
-gem 'terser', '~> 1.1', '>= 1.1.18'
+gem 'uglifier', '>= 1.3.0'
+gem 'terser', '~> 1.1', '>= 1.1.19'
 gem 'friendly_id'
 gem 'sitemap_generator'
-gem 'blacklight-gallery',  '~> 4.3'
-gem 'blacklight-oembed', '~> 1.0'
+gem 'blacklight-gallery', '~> 3.5'
+gem 'blacklight-oembed', '~> 1.1', '>= 1.1.1'
 gem 'devise_invitable'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+gem 'psych', '~> 3.3', '>= 3.3.4'
+gem 'sir_trevor_rails', '~> 0.6.1'
