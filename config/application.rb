@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 module TamuSpotlight
   class Application < Rails::Application
     config.action_mailer.default_url_options = { host: "localhost:4200", from: "noreply@example.com" }
+
+    config.active_record.use_yaml_unsafe_load = true
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.4'
+ruby '3.1.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1'
@@ -55,9 +55,8 @@ gem 'devise_ldap_authenticatable'
 
 gem 'tinymce-rails'
 
-gem 'blacklight', '~> 7.35'
-# gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
-gem 'blacklight-spotlight', '~> 3.3', '>= 3.3.0'
+gem 'blacklight', ' ~> 7.0'
+gem 'blacklight-spotlight', ' ~> 3.0.3'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
@@ -70,12 +69,10 @@ gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'coffee-rails', '~> 4.2'
 gem 'uglifier', '>= 1.3.0'
-gem 'terser', '~> 1.1', '>= 1.1.19'
 gem 'friendly_id'
 gem 'sitemap_generator'
-gem 'blacklight-gallery', '~> 3.5'
-gem 'blacklight-oembed', '~> 1.1', '>= 1.1.1'
+gem 'blacklight-gallery', '~> 1.1'
+gem 'blacklight-oembed', '~> 1.0'
 gem 'devise_invitable'
-gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
-gem 'psych', '~> 3.3', '>= 3.3.4'
-gem 'sir_trevor_rails', '~> 0.6.1'
+
+gem 'psych', '~> 3.1'
