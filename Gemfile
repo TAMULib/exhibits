@@ -51,7 +51,7 @@ gem 'tzinfo-data'
 
 gem 'pg'
 
-gem 'devise_ldap_authenticatable'
+gem 'devise_saml_authenticatable'
 
 gem 'tinymce-rails'
 
