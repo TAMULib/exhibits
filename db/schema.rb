@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_163277) do
+ActiveRecord::Schema.define(version: 2021_05_06_070809) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(version: 2020_10_15_163277) do
     t.datetime "updated_at"
   end
 
+  create_table "spotlight_bulk_updates", force: :cascade do |t|
+    t.string "file", null: false
+    t.integer "exhibit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exhibit_id"], name: "index_spotlight_bulk_updates_on_exhibit_id"
+  end
+
   create_table "spotlight_contact_emails", force: :cascade do |t|
     t.integer "exhibit_id"
     t.string "email", default: "", null: false
@@ -129,6 +137,19 @@ ActiveRecord::Schema.define(version: 2020_10_15_163277) do
     t.index ["exhibit_id"], name: "index_spotlight_custom_search_fields_on_exhibit_id"
   end
 
+  create_table "spotlight_events", force: :cascade do |t|
+    t.integer "exhibit_id"
+    t.string "resource_type", null: false
+    t.integer "resource_id", null: false
+    t.string "type"
+    t.string "collation_key"
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exhibit_id"], name: "index_spotlight_events_on_exhibit_id"
+    t.index ["resource_type", "resource_id"], name: "index_spotlight_events_on_resource_type_and_resource_id"
+  end
+
   create_table "spotlight_exhibits", force: :cascade do |t|
     t.string "title", null: false
     t.string "subtitle"
@@ -145,8 +166,10 @@ ActiveRecord::Schema.define(version: 2020_10_15_163277) do
     t.integer "weight", default: 50
     t.integer "site_id"
     t.string "theme"
+    t.index ["masthead_id"], name: "index_spotlight_exhibits_on_masthead_id"
     t.index ["site_id"], name: "index_spotlight_exhibits_on_site_id"
     t.index ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_exhibits_on_thumbnail_id"
   end
 
   create_table "spotlight_featured_images", force: :cascade do |t|
@@ -175,6 +198,46 @@ ActiveRecord::Schema.define(version: 2020_10_15_163277) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exhibit_id"], name: "index_spotlight_filters_on_exhibit_id"
+  end
+
+  create_table "spotlight_groups", force: :cascade do |t|
+    t.string "slug"
+    t.text "title"
+    t.integer "exhibit_id"
+    t.integer "weight", default: 50
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exhibit_id"], name: "index_spotlight_groups_on_exhibit_id"
+  end
+
+  create_table "spotlight_groups_members", id: false, force: :cascade do |t|
+    t.integer "group_id"
+    t.string "member_type"
+    t.integer "member_id"
+    t.index ["group_id"], name: "index_spotlight_groups_members_on_group_id"
+    t.index ["member_type", "member_id"], name: "index_spotlight_groups_members_on_member_type_and_member_id"
+  end
+
+  create_table "spotlight_job_trackers", force: :cascade do |t|
+    t.string "on_type", null: false
+    t.integer "on_id", null: false
+    t.string "resource_type", null: false
+    t.integer "resource_id", null: false
+    t.string "job_id"
+    t.string "job_class"
+    t.string "parent_job_id"
+    t.string "parent_job_class"
+    t.string "status"
+    t.integer "user_id"
+    t.text "log"
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_spotlight_job_trackers_on_job_id"
+    t.index ["on_type", "on_id"], name: "index_spotlight_job_trackers_on_on_type_and_on_id"
+    t.index ["resource_type", "resource_id"], name: "index_spotlight_job_trackers_on_resource_type_and_resource_id"
+    t.index ["user_id"], name: "index_spotlight_job_trackers_on_user_id"
   end
 
   create_table "spotlight_languages", force: :cascade do |t|
@@ -233,6 +296,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_163277) do
     t.index ["locale"], name: "index_spotlight_pages_on_locale"
     t.index ["parent_page_id"], name: "index_spotlight_pages_on_parent_page_id"
     t.index ["slug", "scope"], name: "index_spotlight_pages_on_slug_and_scope", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_pages_on_thumbnail_id"
   end
 
   create_table "spotlight_reindexing_log_entries", force: :cascade do |t|
@@ -289,7 +353,9 @@ ActiveRecord::Schema.define(version: 2020_10_15_163277) do
     t.boolean "search_box", default: false
     t.string "subtitle"
     t.index ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
+    t.index ["masthead_id"], name: "index_spotlight_searches_on_masthead_id"
     t.index ["slug", "scope"], name: "index_spotlight_searches_on_slug_and_scope", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_searches_on_thumbnail_id"
   end
 
   create_table "spotlight_sites", force: :cascade do |t|
@@ -381,7 +447,8 @@ ActiveRecord::Schema.define(version: 2020_10_15_163277) do
   end
 
   create_table "versions", force: :cascade do |t|
-    t.string "item_type", null: false
+    t.string "item_type"
+    t.string "{:null=>false}"
     t.integer "item_id", limit: 8, null: false
     t.string "event", null: false
     t.string "whodunnit"
