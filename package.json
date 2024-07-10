@@ -11,7 +11,7 @@
     "react-dom": "^16.13.1",
     "turbolinks": "^5.2.0"
   },
-  "version": "3.0.3",
+  "version": "3.0.4-RC1",
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"
   }
