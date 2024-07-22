@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
 
   add_breadcrumb "Digital Collections", Rails.application.config.collections_url
 
+  def after_sign_in_path_for(resource)
+    ENV['SAML_SIGN_IN_SUCCESS_PATH'] || '/'
+  end
+
 end

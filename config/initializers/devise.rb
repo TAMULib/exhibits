@@ -440,7 +440,7 @@ Devise.setup do |config|
   # header that matches the ID of the SAML request. (Default is false)
   # config.saml_validate_in_response_to = false
 
-  config.saml_sign_out_success_url = ENV['SAML_SP_ENTITY_ID'] || "http://localhost:3000"
+  config.saml_sign_out_success_url = ENV['SAML_SIGN_OUT_SUCCESS_URL'] || "http://localhost:3000"
 
   # Configure with your SAML settings (see ruby-saml's README for more information: https://github.com/onelogin/ruby-saml).
   config.saml_configure do |settings|
