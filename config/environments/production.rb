@@ -24,7 +24,7 @@ Rails.application.configure do
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
@@ -136,7 +136,5 @@ Rails.application.configure do
 
   # Digital Collections URL
   config.collections_url = ENV.fetch('COLLECTIONS_URL', 'http://library.tamu.edu/research/digital_collections')
-
-  config.assets.debug = true
 
 end
