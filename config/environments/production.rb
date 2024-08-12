@@ -137,4 +137,6 @@ Rails.application.configure do
   # Digital Collections URL
   config.collections_url = ENV.fetch('COLLECTIONS_URL', 'http://library.tamu.edu/research/digital_collections')
 
+  config.assets.debug = true
+
 end
