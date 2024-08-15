@@ -16,7 +16,9 @@
       </span>
     <% end %>
     <%= link_to_document document, counter: counter %>
-    <%= iiif_drag_n_drop get_presentation_manifest document, document_counter %>
+    <% if !document.uploaded_resource? %>
+      <%= iiif_drag_n_drop get_presentation_manifest document, document_counter %>
+    <% end %>
   </h3>
 
   <%= document_actions %>
