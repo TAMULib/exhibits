@@ -440,15 +440,15 @@ Devise.setup do |config|
   # header that matches the ID of the SAML request. (Default is false)
   # config.saml_validate_in_response_to = false
 
-  config.saml_sign_out_success_url = ENV['SAML_SIGN_OUT_SUCCESS_URL'] || "http://localhost:8080"
+  config.saml_sign_out_success_url = ENV['SAML_SIGN_OUT_SUCCESS_URL'] || "http://localhost:3000"
 
   # Configure with your SAML settings (see ruby-saml's README for more information: https://github.com/onelogin/ruby-saml).
   config.saml_configure do |settings|
-    settings.assertion_consumer_service_url     = ENV['SAML_ASSERTION_CONSUMER_SERVICE_URL'] || "http://localhost:8080/users/saml/auth"
+    settings.assertion_consumer_service_url     = ENV['SAML_ASSERTION_CONSUMER_SERVICE_URL'] || "http://localhost:3000/users/saml/auth"
     settings.assertion_consumer_service_binding = ENV['SAML_ASSERTION_CONSUMER_SERVICE_BINDING'] || "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
-    settings.issuer                             = ENV['SAML_ISSUER'] || "http://localhost:8080/users/saml/metadata"
+    settings.issuer                             = ENV['SAML_ISSUER'] || "http://localhost:3000/users/saml/metadata"
     settings.name_identifier_format             = ENV['SAML_NAME_IDENTIFIER_FORMAT'] || "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
-    settings.sp_entity_id                       = ENV['SAML_SP_ENTITY_ID'] || "http://localhost:8080"
+    settings.sp_entity_id                       = ENV['SAML_SP_ENTITY_ID'] || "http://localhost:3000"
     settings.authn_context                      = ENV['SAML_AUTHN_CONTEXT'] || "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
     settings.idp_slo_service_url                = ENV['SAML_IDP_SLO_SERVICE_URL'] || "https://login.microsoftonline.com/68f381e3-46da-47b9-ba57-6f322b8f0da1/saml2"
     settings.idp_sso_service_url                = ENV['SAML_IDP_SSO_SERVICE_URL'] || "https://login.microsoftonline.com/68f381e3-46da-47b9-ba57-6f322b8f0da1/saml2"
