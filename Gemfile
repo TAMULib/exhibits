@@ -4,15 +4,18 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
+# gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
+gem 'rails', '~> 7.1' #FOR UPGRADE
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+# gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.0' #FOR UPGRADE
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+# gem 'webpacker', '~> 5.0'
+gem 'shakapacker', '~> 7.2' #FOR UPGRADE
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -26,7 +29,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+# gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', require: false #FOR UPGRADE
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,8 +56,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'blacklight', ' ~> 7.0'
-gem 'blacklight-spotlight', ' ~> 3.0.3'
+# gem 'blacklight', ' ~> 7.0'
+gem 'blacklight', '~> 8.7' #FOR UPGRADE
+# gem 'blacklight-spotlight', ' ~> 3.0.3'
+gem 'blacklight-spotlight', '~> 5.1' #FOR UPGRADE
+
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
@@ -70,7 +77,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'friendly_id'
 gem 'riiif'
 gem 'sitemap_generator'
-gem 'blacklight-gallery', '~> 1.1'
+# gem 'blacklight-gallery', '~> 1.1'
+gem 'blacklight-gallery', '~> 4.0' #For UPGRADE
 gem 'openseadragon', '>= 0.2.0'
 gem 'blacklight-oembed', '~> 1.0'
 gem 'devise_invitable'
@@ -80,3 +88,6 @@ gem 'devise_saml_authenticatable'
 gem 'tinymce-rails'
 
 gem 'pg'
+
+gem 'turbo-rails' #FOR UPGRADE
+gem 'stimulus-rails' #FOR UPGRADE
