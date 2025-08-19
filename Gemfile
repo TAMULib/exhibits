@@ -10,14 +10,16 @@ gem 'rails', '~> 7.1' #FOR UPGRADE
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 # gem 'puma', '~> 5.0'
-gem 'puma', '~> 6.0' #FOR UPGRADE
+gem 'puma', '~> 6.4' #FOR UPGRADE
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
+# gem 'sass-rails', '>= 6'
+gem 'sassc-rails' #FOR UPGRADE
+gem 'sprockets-rails', '~> 3.5' #FOR UPGRADE
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 # gem 'webpacker', '~> 5.0'
 gem 'shakapacker', '~> 7.2' #FOR UPGRADE
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -75,7 +77,8 @@ gem 'devise-guests', '~> 0.8'
 gem 'coffee-rails', '~> 4.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'friendly_id'
-gem 'riiif'
+# gem 'riiif'
+gem 'riiif', '~> 2.3' #FOR UPGRADE
 gem 'sitemap_generator'
 # gem 'blacklight-gallery', '~> 1.1'
 gem 'blacklight-gallery', '~> 4.0' #For UPGRADE
