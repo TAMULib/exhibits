@@ -11,6 +11,7 @@
 //= require blacklight_oembed
 
 //= require openseadragon
+//= require openseadragon/rails
 //= require spotlight
 
 //= require_tree ./spotlight
