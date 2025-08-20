@@ -7,11 +7,6 @@
 //= require twitter/typeahead
 //= require blacklight/blacklight
 
-//= require blacklight_gallery/default
-//= require blacklight_oembed
-
-//= require openseadragon
 //= require openseadragon/rails
-//= require spotlight
 
 //= require_tree ./spotlight

@@ -9,6 +9,11 @@
 // require("@rails/activestorage").start()
 // require("channels")
 
+import "blacklight-gallery"
+import "blacklight-oembed"
+import "spotlight"
+import "openseadragon"
+
 // Turbo replaces Turbolinks + Rails UJS
 import "@hotwired/turbo-rails"
 
