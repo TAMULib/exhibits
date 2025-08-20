@@ -1,10 +1,4 @@
-$primary: #3c0000;
-$linkBlue: #00648b;
-
-@import "spotlight/variables_bootstrap";
-@import "bootstrap";
-@import "sir-trevor/main";
-@import "leaflet";
+// Bring in Spotlight’s styles from the gem
 @import "spotlight/spotlight";
 
 body {
@@ -146,4 +140,12 @@ a:hover {
   img {
     vertical-align: baseline;
   }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
 }

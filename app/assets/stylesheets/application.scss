@@ -10,13 +10,25 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require blacklight_gallery
- *= require blacklight_oembed
- *= require blacklight
- *= require openseadragon
- *= require spotlight
  *= require_self
  */
+
+// Bootstrap 5 SCSS (variables, mixins, utilities, components)
+@import "bootstrap/scss/bootstrap";
+
+// Blacklight styles (search UI, facets, etc.)
+@import "blacklight/blacklight";
+
+// Blacklight plugins (if used)
+@import "blacklight_gallery";
+@import "blacklight_oembed";
+
+// Spotlight styles (exhibit UI, custom widgets, etc.)
+@import "spotlight/spotlight";
+
+
+// Openseadragon (viewer CSS, sometimes included via gem/assets)
+@import "openseadragon/openseadragon";
 
 a {
     color: #00648b;
