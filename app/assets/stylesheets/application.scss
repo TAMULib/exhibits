@@ -14,17 +14,17 @@
  */
 
 // Bootstrap 5 SCSS (variables, mixins, utilities, components)
-@import "bootstrap/scss/bootstrap";
+@import "bootstrap";
 
 // Blacklight styles (search UI, facets, etc.)
-@import "blacklight/blacklight";
+@import "blacklight";
 
 // Blacklight plugins (if used)
 @import "blacklight_gallery";
 @import "blacklight_oembed";
 
 // Spotlight styles (exhibit UI, custom widgets, etc.)
-@import "spotlight/spotlight";
+@import "spotlight";
 
 
 // Openseadragon (viewer CSS, sometimes included via gem/assets)
