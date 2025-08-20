@@ -136,7 +136,7 @@ Rails.application.configure do
   # Mirador location for spotlight iiif maifest drag and drop
   config.iiif_info_url = ENV.fetch('IIIF_INFO_URL', 'https://library.tamu.edu/digital-assets/iiif')
 
-  # Digital Collections URL
-  config.collections_url = ENV.fetch('COLLECTIONS_URL', 'http://library.tamu.edu/research/digital_collections')
+  # Exhibits Collection URL
+  config.collections_url = ENV.fetch('COLLECTIONS_URL', 'https://spotlight.library.tamu.edu/spotlight')
 
 end
