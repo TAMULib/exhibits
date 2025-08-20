@@ -24,11 +24,14 @@
 @import "blacklight_oembed";
 
 // Spotlight styles (exhibit UI, custom widgets, etc.)
-@import "spotlight";
+@import "spotlight/spotlight";
 
 
 // Openseadragon (viewer CSS, sometimes included via gem/assets)
 @import "openseadragon/openseadragon";
+
+//Overrides
+@import "spotlight";
 
 a {
     color: #00648b;
