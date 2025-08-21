@@ -68,8 +68,8 @@ a:hover {
 
 }
 
-.nav-link .navbar-nav, .navbar-dark {
-  color: #757575
+.navbar-dark .navbar-nav .nav-link, .navbar-nav .nav-link {
+    color: #757575; 
 }
 
 .image-masthead .exhibit-navbar {
