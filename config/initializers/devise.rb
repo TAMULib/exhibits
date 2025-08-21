@@ -452,7 +452,7 @@ Devise.setup do |config|
     settings.authn_context                      = ENV['SAML_AUTHN_CONTEXT'] || "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
     settings.idp_slo_service_url                = ENV['SAML_IDP_SLO_SERVICE_URL'] || "https://login.microsoftonline.com/68f381e3-46da-47b9-ba57-6f322b8f0da1/saml2"
     settings.idp_sso_service_url                = ENV['SAML_IDP_SSO_SERVICE_URL'] || "https://login.microsoftonline.com/68f381e3-46da-47b9-ba57-6f322b8f0da1/saml2"
-    settings.idp_cert_fingerprint               = ENV['SAML_IDP_CERT_FINGERPRINT'] || "00:A1:2B:3C:44:55:6F:A7:88:CC:DD:EE:22:33:44:55:D6:77:8F:99"
+    settings.idp_cert_fingerprint               = ENV['SAML_IDP_CERT_FINGERPRINT'] || "AE:12:A5:A8:0E:02:B2:4B:C2:A3:A0:BD:AF:7E:E9:4D:41:37:65:53"
     settings.idp_cert_fingerprint_algorithm     = ENV['SAML_IDP_CERT_FINGERPRINT_ALGORITHM'] || "http://www.w3.org/2000/09/xmldsig#sha1"
   end
 end
