@@ -67,3 +67,7 @@ a:hover {
     border-bottom: none;
 
 }
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
