@@ -67,3 +67,11 @@ a:hover {
     border-bottom: none;
 
 }
+
+.navbar-dark .navbar-nav .nav-link, .navbar-nav .nav-link {
+    color: #A7A7A7 !important; 
+}
+
+.image-masthead .exhibit-navbar {
+    background-color: #000000;
+}
