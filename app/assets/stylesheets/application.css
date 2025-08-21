@@ -68,6 +68,9 @@ a:hover {
 
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: #000000;
+  
 .navbar-dark .navbar-nav .nav-link, .navbar-nav .nav-link {
     color: #A7A7A7 !important; 
 }
