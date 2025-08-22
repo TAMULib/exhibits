@@ -88,10 +88,9 @@ GEM
       rails (>= 6.1, < 8.1)
       view_component (>= 2.74, < 4)
       zeitwerk
-    blacklight-gallery (2.1.0)
-      blacklight (~> 7.7)
+    blacklight-gallery (3.0.4)
+      blacklight (~> 7.12)
       bootstrap (~> 4.0)
-      openseadragon (>= 0.2.0)
       rails (>= 5.1, < 7)
     blacklight-oembed (1.4.2)
       blacklight (>= 7.25, < 9)
@@ -526,7 +525,7 @@ PLATFORMS
 
 DEPENDENCIES
   blacklight (~> 7.7)
-  blacklight-gallery (~> 2.1.0)
+  blacklight-gallery (~> 3.0.1)
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (~> 3.0.3)
   bootsnap (>= 1.4.2)
