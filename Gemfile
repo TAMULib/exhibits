@@ -53,7 +53,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'blacklight', ' ~> 7.33.0'
-gem 'blacklight-spotlight', ' ~> 3.5.0.2'
+gem 'blacklight-spotlight', ' ~> 3.4.4.1'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
