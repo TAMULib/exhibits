@@ -90,7 +90,7 @@ GEM
     blacklight-gallery (4.9.0)
       blacklight (>= 7.17, < 9)
       rails (>= 6.1, < 9)
-    blacklight-oembed (1.4.2)
+    blacklight-oembed (1.2.0)
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
@@ -515,7 +515,7 @@ PLATFORMS
 DEPENDENCIES
   blacklight (~> 7.33.0)
   blacklight-gallery (~> 4.9.0)
-  blacklight-oembed (~> 1.0)
+  blacklight-oembed (~> 1.2.0)
   blacklight-spotlight (~> 3.5.0.2)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.0)

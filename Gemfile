@@ -72,7 +72,7 @@ gem 'riiif'
 gem 'sitemap_generator'
 gem 'blacklight-gallery', '~> 4.9.0'
 gem 'openseadragon', '>= 0.2.0'
-gem 'blacklight-oembed', '~> 1.0'
+gem 'blacklight-oembed', '~> 1.2.0'
 gem 'devise_invitable'
 
 gem 'devise_saml_authenticatable'
