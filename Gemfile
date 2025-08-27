@@ -59,7 +59,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'blacklight', ' ~> 7.0'
-gem 'blacklight', '~> 8.7' #FOR UPGRADE
+gem 'blacklight', '~> 8.12', '>= 8.12.2' #FOR UPGRADE
 # gem 'blacklight-spotlight', ' ~> 3.0.3'
 gem 'blacklight-spotlight', '~> 5.1' #FOR UPGRADE
 
@@ -82,9 +82,10 @@ gem 'friendly_id'
 gem 'riiif', '~> 2.3' #FOR UPGRADE
 gem 'sitemap_generator'
 # gem 'blacklight-gallery', '~> 1.1'
-gem 'blacklight-gallery', '~> 4.0' #For UPGRADE
+gem 'blacklight-gallery', '~> 4.9' #For UPGRADE
 gem 'openseadragon', '>= 0.2.0'
-gem 'blacklight-oembed', '~> 1.0'
+# gem 'blacklight-oembed', '~> 1.0'
+gem 'blacklight-oembed', '~> 1.4', '>= 1.4.2' #FOR UPGRADE
 gem 'devise_invitable'
 
 gem 'devise_saml_authenticatable'
