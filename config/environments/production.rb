@@ -23,7 +23,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress CSS using a preprocessor.
-  config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sassc
   config.assets.js_compressor = Uglifier.new(harmony: true)
 
   config.assets.debug = false
@@ -137,6 +137,6 @@ Rails.application.configure do
   config.iiif_info_url = ENV.fetch('IIIF_INFO_URL', 'https://library.tamu.edu/digital-assets/iiif')
 
   # Digital Collections URL
-  config.collections_url = ENV.fetch('COLLECTIONS_URL', 'http://library.tamu.edu/research/digital_collections')
+  config.collections_url = ENV.fetch('COLLECTIONS_URL', 'https://spotlight.library.tamu.edu/spotlight/')
 
 end
