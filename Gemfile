@@ -77,6 +77,7 @@ gem 'devise'
 gem 'devise-guests', '~> 0.8'
 gem 'coffee-rails', '~> 4.2'
 gem 'uglifier', '>= 1.3.0'
+gem 'terser', '~> 1.2', '>= 1.2.6'
 gem 'friendly_id'
 # gem 'riiif'
 gem 'riiif', '~> 2.3' #FOR UPGRADE
