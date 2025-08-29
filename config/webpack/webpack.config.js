@@ -53,6 +53,25 @@ const aliases = {};
   }
 })();
 
+// --- blacklight-spotlight alias for `import 'spotlight'` ---
+(() => {
+  const root = gemRoot('blacklight-spotlight');
+  if (!root) return;
+  const target = firstExisting([
+    // common entry locations across Spotlight versions
+    path.join(root, 'app/javascript/spotlight.js'),
+    path.join(root, 'app/javascript/spotlight/index.js'),
+    path.join(root, 'app/javascript/spotlight.esm.js'),
+    path.join(root, 'app/javascript/spotlight'), // directory with index.js
+    // older fallbacks
+    path.join(root, 'app/assets/javascripts/spotlight.js'),
+    path.join(root, 'app/javascript') // last-resort if gem ships an index.js there
+  ]);
+  if (target) {
+    aliases['spotlight'] = target;
+  }
+})();
+
 // Optional: make these importable by name if your packs use them
 for (const [alias, gem] of Object.entries({
   'blacklight': 'blacklight',
