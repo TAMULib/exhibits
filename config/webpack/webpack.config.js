@@ -8,7 +8,7 @@ function gemRoot(gem) {
   try {
     return execSync(`bundle show ${gem}`, { stdio: ['ignore', 'pipe', 'ignore'] })
       .toString().trim();
-  } catch (_) {
+  } catch {
     return null;
   }
 }
@@ -19,32 +19,50 @@ function firstExisting(paths) {
 
 const aliases = {};
 
-// --- blacklight-gallery alias ---
-const blg = gemRoot('blacklight-gallery');
-if (blg) {
-  const candidates = [
-    path.join(blg, 'app/javascript/blacklight-gallery.js'),
-    path.join(blg, 'app/javascript/blacklight_gallery.js'),
-    path.join(blg, 'app/javascript/blacklight-gallery/index.js'),
-    path.join(blg, 'app/javascript/blacklight_gallery/index.js')
-  ];
-  const target = firstExisting(candidates);
+// ---- blacklight-gallery ----
+(() => {
+  const root = gemRoot('blacklight-gallery');
+  if (!root) return;
+  const target = firstExisting([
+    path.join(root, 'app/javascript/blacklight-gallery.js'),
+    path.join(root, 'app/javascript/blacklight_gallery.js'),
+    path.join(root, 'app/javascript/blacklight-gallery/index.js'),
+    path.join(root, 'app/javascript/blacklight_gallery/index.js'),
+    path.join(root, 'app/javascript'), // fallback if index.js exists here
+  ]);
   if (target) {
-    aliases['blacklight-gallery'] = target;         // supports: import 'blacklight-gallery'
-    aliases['blacklight_gallery'] = target;         // just in case underscore is used
+    aliases['blacklight-gallery'] = target;
+    aliases['blacklight_gallery'] = target;
   }
-}
+})();
 
-// (optional) similar aliases if your packs import these by name
-for (const [key, gem] of Object.entries({
+// ---- blacklight-oembed ----
+(() => {
+  const root = gemRoot('blacklight-oembed');
+  if (!root) return;
+  const target = firstExisting([
+    path.join(root, 'app/javascript/blacklight-oembed.js'),
+    path.join(root, 'app/javascript/blacklight_oembed.js'),
+    path.join(root, 'app/javascript/blacklight-oembed/index.js'),
+    path.join(root, 'app/javascript/blacklight_oembed/index.js'),
+    path.join(root, 'app/javascript'), // fallback if index.js exists here
+  ]);
+  if (target) {
+    aliases['blacklight-oembed'] = target;
+    aliases['blacklight_oembed'] = target;
+  }
+})();
+
+// Optional: make these importable by name if your packs use them
+for (const [alias, gem] of Object.entries({
   'blacklight': 'blacklight',
-  'blacklight-spotlight': 'blacklight-spotlight'
+  'blacklight-spotlight': 'blacklight-spotlight',
+  'openseadragon': 'openseadragon',
 })) {
   const root = gemRoot(gem);
-  if (root) {
-    const dir = path.join(root, 'app/javascript');
-    if (fs.existsSync(dir)) aliases[key] = dir;
-  }
+  if (!root) continue;
+  const dir = path.join(root, 'app/javascript');
+  if (fs.existsSync(dir)) aliases[alias] = dir;
 }
 
 const custom = {
@@ -52,10 +70,10 @@ const custom = {
     alias: aliases,
     modules: [
       path.resolve(__dirname, '../../app/javascript'),
-      'node_modules'
+      'node_modules',
     ],
-    extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.coffee']
-  }
+    extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.coffee'],
+  },
 };
 
 module.exports = merge(generateWebpackConfig(), custom);
