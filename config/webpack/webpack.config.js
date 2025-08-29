@@ -41,30 +41,46 @@ const aliases = {};
   const root = gemRoot('blacklight-oembed');
   if (!root) return;
 
-  // Try ES-style files ONLY (no folder fallback)
-  const esTarget = firstExisting([
-    path.join(root, 'app/javascript/blacklight-oembed.js'),
-    path.join(root, 'app/javascript/blacklight_oembed.js'),
-    path.join(root, 'app/javascript/blacklight-oembed/index.js'),
-    path.join(root, 'app/javascript/blacklight_oembed/index.js'),
+  function findFirst(root, rels) {
+    for (const rel of rels) {
+      const p = path.join(root, rel);
+      if (fs.existsSync(p)) return p;
+    }
+    return null;
+  }
+
+  const target = findFirst(root, [
+    // ES-style (rare on 1.x, but try)
+    'app/javascript/blacklight-oembed.js',
+    'app/javascript/blacklight_oembed.js',
+    'app/javascript/blacklight-oembed/index.js',
+    'app/javascript/blacklight_oembed/index.js',
+
+    // Legacy Sprockets paths (common)
+    'app/assets/javascripts/blacklight/oembed.js',
+    'app/assets/javascripts/blacklight-oembed.js',
+    'app/assets/javascripts/blacklight_oembed.js',
+    'vendor/assets/javascripts/blacklight/oembed.js',
+    'vendor/assets/javascripts/blacklight-oembed.js',
+    'vendor/assets/javascripts/blacklight_oembed.js',
   ]);
-  if (esTarget) {
-    aliases['blacklight-oembed$'] = esTarget;
-    aliases['blacklight_oembed$'] = esTarget;
+
+  if (target) {
+    // map both forms; add $ for exact-match
+    aliases['blacklight-oembed'] = target;
+    aliases['blacklight-oembed$'] = target;
+    aliases['blacklight_oembed'] = target;
+    aliases['blacklight_oembed$'] = target;
     return;
   }
 
-  // Fallback to the legacy Sprockets asset shipped by the gem
-  const legacyTarget = firstExisting([
-    path.join(root, 'app/assets/javascripts/blacklight/oembed.js'),
-    path.join(root, 'vendor/assets/javascripts/blacklight/oembed.js'),
-    path.join(root, 'app/assets/javascripts/blacklight-oembed.js'),
-    path.join(root, 'app/assets/javascripts/blacklight_oembed.js'),
-  ]);
-  if (legacyTarget) {
-    // $ ensures `import 'blacklight-oembed'` resolves to THIS file
-    aliases['blacklight-oembed$'] = legacyTarget;
-    aliases['blacklight_oembed$'] = legacyTarget;
+  // LAST-RESORT local shim (see Dockerfile step below)
+  const localShim = path.resolve(__dirname, '../../app/javascript/vendor/blacklight-oembed.js');
+  if (fs.existsSync(localShim)) {
+    aliases['blacklight-oembed'] = localShim;
+    aliases['blacklight-oembed$'] = localShim;
+    aliases['blacklight_oembed'] = localShim;
+    aliases['blacklight_oembed$'] = localShim;
   }
 })();
 
