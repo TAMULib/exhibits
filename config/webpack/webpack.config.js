@@ -41,21 +41,20 @@ const aliases = {};
   const root = gemRoot('blacklight-oembed');
   if (!root) return;
 
-  // Prefer ES build if the gem ever adds one
+  // Try ES-style files ONLY (no folder fallback)
   const esTarget = firstExisting([
     path.join(root, 'app/javascript/blacklight-oembed.js'),
     path.join(root, 'app/javascript/blacklight_oembed.js'),
     path.join(root, 'app/javascript/blacklight-oembed/index.js'),
     path.join(root, 'app/javascript/blacklight_oembed/index.js'),
-    path.join(root, 'app/javascript'),
   ]);
   if (esTarget) {
-    aliases['blacklight-oembed'] = esTarget;
-    aliases['blacklight_oembed'] = esTarget;
+    aliases['blacklight-oembed$'] = esTarget;
+    aliases['blacklight_oembed$'] = esTarget;
     return;
   }
 
-  // Fallback to legacy Sprockets file shipped by the gem
+  // Fallback to the legacy Sprockets asset shipped by the gem
   const legacyTarget = firstExisting([
     path.join(root, 'app/assets/javascripts/blacklight/oembed.js'),
     path.join(root, 'vendor/assets/javascripts/blacklight/oembed.js'),
@@ -63,7 +62,7 @@ const aliases = {};
     path.join(root, 'app/assets/javascripts/blacklight_oembed.js'),
   ]);
   if (legacyTarget) {
-    // Use $ so `import 'blacklight-oembed'` resolves exactly to this file
+    // $ ensures `import 'blacklight-oembed'` resolves to THIS file
     aliases['blacklight-oembed$'] = legacyTarget;
     aliases['blacklight_oembed$'] = legacyTarget;
   }
