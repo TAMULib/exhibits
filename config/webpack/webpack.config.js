@@ -144,27 +144,25 @@ for (const [alias, gem] of Object.entries({
 
 // Map ".pkgd" names to the actual files from npm packages
 (() => {
-  const tryResolve = (candidates) => {
-    for (const spec of candidates) {
-      try { return require.resolve(spec); } catch {}
-    }
-    return null;
-  };
+  const pick = (...cands) => cands.find(fs.existsSync);
 
-  const img = tryResolve([
-    'imagesloaded/imagesloaded.pkgd.js',
-    'imagesloaded/imagesloaded.pkgd.min.js',
-    // fallback to module entry if needed (brings in deps separately)
-    'imagesloaded'
-  ]);
-  if (img) aliases['imagesloaded.pkgd'] = img;
+  const img = pick(
+    path.resolve(process.cwd(), 'node_modules/imagesloaded/imagesloaded.pkgd.js'),
+    path.resolve(process.cwd(), 'node_modules/imagesloaded/imagesloaded.pkgd.min.js'),
+  );
+  if (img) {
+    aliases['imagesloaded.pkgd'] = img; // what blacklight-gallery asks for
+    aliases['imagesloaded']      = img; // some code imports the bare name
+  }
 
-  const mason = tryResolve([
-    'masonry-layout/dist/masonry.pkgd.js',
-    'masonry-layout/dist/masonry.pkgd.min.js',
-    'masonry-layout'
-  ]);
-  if (mason) aliases['masonry.pkgd'] = mason;
+  const mason = pick(
+    path.resolve(process.cwd(), 'node_modules/masonry-layout/dist/masonry.pkgd.js'),
+    path.resolve(process.cwd(), 'node_modules/masonry-layout/dist/masonry.pkgd.min.js'),
+  );
+  if (mason) {
+    aliases['masonry.pkgd']   = mason;        // alternate import style
+    aliases['masonry-layout'] = mason;        // bare package name
+  }
 })();
 
 const custom = {
