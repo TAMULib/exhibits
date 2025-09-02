@@ -127,6 +127,16 @@ for (const [alias, gem] of Object.entries({
   if (fs.existsSync(dir)) aliases[alias] = dir;
 }
 
+// Map ".pkgd" names to the actual files from npm packages
+(() => {
+  try {
+    aliases['imagesloaded.pkgd'] = require.resolve('imagesloaded/imagesloaded.pkgd.js');
+  } catch {}
+  try {
+    aliases['masonry.pkgd'] = require.resolve('masonry-layout/dist/masonry.pkgd.js');
+  } catch {}
+})();
+
 const custom = {
   resolve: {
     alias: aliases,
