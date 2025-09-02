@@ -127,14 +127,44 @@ for (const [alias, gem] of Object.entries({
   if (fs.existsSync(dir)) aliases[alias] = dir;
 }
 
+// If any pack ever imports openseadragon via JS this is optional alias block (safe to keep even if unused)
+(() => {
+  const root = gemRoot('openseadragon');
+  if (!root) return;
+  const entry = firstExisting([
+    path.join(root, 'app/javascript/openseadragon.js'),
+    path.join(root, 'app/javascript/index.js'),
+    path.join(root, 'app/javascript/openseadragon.esm.js'),
+  ]);
+  if (entry) {
+    aliases['openseadragon']  = path.join(root, 'app/javascript'); // allow subpaths
+    aliases['openseadragon$'] = entry;                              // bare import
+  }
+})();
+
 // Map ".pkgd" names to the actual files from npm packages
 (() => {
-  try {
-    aliases['imagesloaded.pkgd'] = require.resolve('imagesloaded/imagesloaded.pkgd.js');
-  } catch {}
-  try {
-    aliases['masonry.pkgd'] = require.resolve('masonry-layout/dist/masonry.pkgd.js');
-  } catch {}
+  const tryResolve = (candidates) => {
+    for (const spec of candidates) {
+      try { return require.resolve(spec); } catch {}
+    }
+    return null;
+  };
+
+  const img = tryResolve([
+    'imagesloaded/imagesloaded.pkgd.js',
+    'imagesloaded/imagesloaded.pkgd.min.js',
+    // fallback to module entry if needed (brings in deps separately)
+    'imagesloaded'
+  ]);
+  if (img) aliases['imagesloaded.pkgd'] = img;
+
+  const mason = tryResolve([
+    'masonry-layout/dist/masonry.pkgd.js',
+    'masonry-layout/dist/masonry.pkgd.min.js',
+    'masonry-layout'
+  ]);
+  if (mason) aliases['masonry.pkgd'] = mason;
 })();
 
 const custom = {
