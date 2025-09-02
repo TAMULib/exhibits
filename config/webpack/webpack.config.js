@@ -23,16 +23,27 @@ const aliases = {};
 (() => {
   const root = gemRoot('blacklight-gallery');
   if (!root) return;
-  const target = firstExisting([
-    path.join(root, 'app/javascript/blacklight-gallery.js'),
-    path.join(root, 'app/javascript/blacklight_gallery.js'),
-    path.join(root, 'app/javascript/blacklight-gallery/index.js'),
-    path.join(root, 'app/javascript/blacklight_gallery/index.js'),
-    path.join(root, 'app/javascript'), // fallback if index.js exists here
-  ]);
-  if (target) {
-    aliases['blacklight-gallery'] = target;
-    aliases['blacklight_gallery'] = target;
+
+  const dirCandidates = [
+    path.join(root, 'app/javascript/blacklight-gallery'),
+    path.join(root, 'app/javascript/blacklight_gallery'),
+  ];
+  const dir = firstExisting(dirCandidates);
+  if (dir) {
+    // allow imports like 'blacklight-gallery/slideshow'
+    aliases['blacklight-gallery'] = dir;
+    aliases['blacklight_gallery'] = dir; // underscore variant
+
+    // exact-match alias for plain 'blacklight-gallery'
+    const indexCandidates = [
+      path.join(dir, 'index.js'),
+      path.join(dir, 'index.mjs'),
+    ];
+    const indexFile = firstExisting(indexCandidates);
+    if (indexFile) {
+      aliases['blacklight-gallery$'] = indexFile;
+      aliases['blacklight_gallery$'] = indexFile;
+    }
   }
 })();
 
@@ -88,26 +99,27 @@ const aliases = {};
 (() => {
   const root = gemRoot('blacklight-spotlight');
   if (!root) return;
-  const target = firstExisting([
-    // common entry locations across Spotlight versions
+
+  // Directory so imports like `spotlight/foo` work
+  const dir = firstExisting([
+    path.join(root, 'app/javascript/spotlight'),
+  ]);
+
+  // Exact entry file so bare `import 'spotlight'` works
+  const exact = firstExisting([
     path.join(root, 'app/javascript/spotlight.js'),
     path.join(root, 'app/javascript/spotlight/index.js'),
     path.join(root, 'app/javascript/spotlight.esm.js'),
-    path.join(root, 'app/javascript/spotlight'), // directory with index.js
-    // older fallbacks
-    path.join(root, 'app/assets/javascripts/spotlight.js'),
-    path.join(root, 'app/javascript') // last-resort if gem ships an index.js there
   ]);
-  if (target) {
-    aliases['spotlight'] = target;
-  }
+
+  if (dir)  aliases['spotlight']  = dir;
+  if (exact) aliases['spotlight$'] = exact;
 })();
 
 // Optional: make these importable by name if your packs use them
 for (const [alias, gem] of Object.entries({
   'blacklight': 'blacklight',
   'blacklight-spotlight': 'blacklight-spotlight',
-  'openseadragon': 'openseadragon',
 })) {
   const root = gemRoot(gem);
   if (!root) continue;
