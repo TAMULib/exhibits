@@ -112,7 +112,7 @@ const aliases = {};
     path.join(root, 'app/javascript/spotlight.esm.js'),
   ]);
 
-  if (dir)  aliases['spotlight']  = dir;
+  if (dir)  aliases['spotlight'] = dir;
   if (exact) aliases['spotlight$'] = exact;
 })();
 
@@ -137,7 +137,7 @@ for (const [alias, gem] of Object.entries({
     path.join(root, 'app/javascript/openseadragon.esm.js'),
   ]);
   if (entry) {
-    aliases['openseadragon']  = path.join(root, 'app/javascript'); // allow subpaths
+    aliases['openseadragon'] = path.join(root, 'app/javascript'); // allow subpaths
     aliases['openseadragon$'] = entry;                              // bare import
   }
 })();
@@ -152,7 +152,7 @@ for (const [alias, gem] of Object.entries({
   );
   if (img) {
     aliases['imagesloaded.pkgd'] = img; // what blacklight-gallery asks for
-    aliases['imagesloaded']      = img; // some code imports the bare name
+    aliases['imagesloaded'] = img; // some code imports the bare name
   }
 
   const mason = pick(
@@ -160,9 +160,21 @@ for (const [alias, gem] of Object.entries({
     path.resolve(process.cwd(), 'node_modules/masonry-layout/dist/masonry.pkgd.min.js'),
   );
   if (mason) {
-    aliases['masonry.pkgd']   = mason;        // alternate import style
+    aliases['masonry.pkgd'] = mason;        // alternate import style
     aliases['masonry-layout'] = mason;        // bare package name
+    aliases['masonry.min'] = masonMin; // what blacklight-gallery imports
+    aliases['masonry.pkgd.min'] = masonMin; // just in case
+    aliases['masonry'] = masonMin; // some code uses thi
   }
+})();
+
+// slick (slideshow)
+(() => {
+  try {
+    const slick = require.resolve('slick-carousel/slick/slick.js');
+    aliases['slick'] = slick;            // legacy import name
+    aliases['slick-carousel'] = slick;   // package name
+  } catch {}
 })();
 
 const custom = {
