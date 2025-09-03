@@ -162,9 +162,9 @@ for (const [alias, gem] of Object.entries({
   if (mason) {
     aliases['masonry.pkgd'] = mason;        // alternate import style
     aliases['masonry-layout'] = mason;        // bare package name
-    aliases['masonry.min'] = masonMin; // what blacklight-gallery imports
-    aliases['masonry.pkgd.min'] = masonMin; // just in case
-    aliases['masonry'] = masonMin; // some code uses thi
+    aliases['masonry.min'] = mason; // what blacklight-gallery imports
+    aliases['masonry.pkgd.min'] = mason; // just in case
+    aliases['masonry'] = mason; // some code uses thi
   }
 })();
 
