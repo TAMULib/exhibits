@@ -19,63 +19,55 @@
  */
 
 a {
-    color: #00648b;
-    text-decoration: none;
-    border-bottom: 1px dotted #00648b;
-  }
-
-
-a:hover {
-    color: #003f58;
-    text-decoration: none;
-    border-bottom: 1px solid #003f58;
-  }
-
-.exhibit-card .card-title .stretched-link {
-    outline: none;
-    border-bottom: none;
+  color: #00648b;
+  text-decoration: none;
+  border-bottom: 1px dotted #00648b;
 }
 
+a:hover {
+  color: #003f58;
+  text-decoration: none;
+  border-bottom: 1px solid #003f58;
+}
+
+.exhibit-card .card-title .stretched-link {
+  outline: none;
+  border-bottom: none;
+}
 
 .exhibit-card a {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .exhibit-card a:hover {
-    border-bottom: none;
+  border-bottom: none;
 }
-
 
 .site-footer .footer-lower a{
-   
-    border-bottom: none;
+  border-bottom: none;
 }
-
 
 .site-footer .footer-lower a:hover{
-    color:  #ffc222;
-    border-bottom: 1px dotted #ffc222;
+  color:  #ffc222;
+  border-bottom: 1px dotted #ffc222;
 }
-
 
 #published .nav-pills .nav-link {
-        border-bottom: none;
+  border-bottom: none;
 }
 
-
 .nav-item a, .nav-item a:hover {
-    border-bottom: none;
-
+  border-bottom: none;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #000000;
+  color: #000000;
 }
 
 .navbar-dark .navbar-nav .nav-link, .navbar-nav .nav-link {
-    color: #D1D1D1; 
+  color: #D1D1D1;
 }
 
 .image-masthead .exhibit-navbar {
-    background-color: #000000;
+  background-color: #000000;
 }
